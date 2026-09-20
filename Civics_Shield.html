@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CivicShield — SDG 16 Civic Platform</title>
+<meta name="description" content="CivicShield prototype for SDG 16: Peace, Justice and Strong Institutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="Civics_Sheild.css">
+</head>
+
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-mark"><i class="fa-solid fa-shield-halved"></i></div>
+    <div><h1>CivicShield</h1><small>SDG 16 • Civic Platform</small></div>
+  </div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard"><i class="fa-solid fa-chart-pie"></i> Dashboard</button>
+    <button data-page="report"><i class="fa-solid fa-file-pen"></i> Report an Issue</button>
+    <button data-page="track"><i class="fa-solid fa-magnifying-glass"></i> Track Complaint</button>
+    <button data-page="rights"><i class="fa-solid fa-book-open"></i> Know Your Rights</button>
+    <button data-page="services"><i class="fa-solid fa-building-columns"></i> Public Services</button>
+    <button data-page="help"><i class="fa-solid fa-location-dot"></i> Find Help</button>
+    <button data-page="alerts"><i class="fa-solid fa-bell"></i> Public Alerts</button>
+    <button data-page="awareness"><i class="fa-solid fa-newspaper"></i> Civic Awareness</button>
+    <button data-page="feedback"><i class="fa-solid fa-comment-dots"></i> Citizen Feedback</button>
+    <button data-page="privacy"><i class="fa-solid fa-user-shield"></i> Privacy & Safety</button>
+    <button data-page="impact"><i class="fa-solid fa-chart-line"></i> Impact</button>
+    <button data-page="official"><i class="fa-solid fa-phone"></i> Official Help</button>
+    <button data-page="admin"><i class="fa-solid fa-user-gear"></i> Admin Panel</button>
+  </nav>
+  <div class="sidebar-note"><b>Prototype notice</b><br>This is a college project prototype. Complaint statistics shown in the dashboard are demo data and do not represent official government records.</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:11px">
+    <button class="icon-btn mobile-menu" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+    <div><div class="top-title" id="topTitle">Civic Dashboard</div><div class="top-sub">Peace • Justice • Strong Institutions</div></div>
+  </div>
+  <div class="top-actions">
+    <button class="icon-btn" onclick="showToast('No new notifications')"><i class="fa-regular fa-bell"></i></button>
+    <div class="profile"><div class="avatar"><i class="fa-solid fa-user"></i></div><span>Citizen</span></div>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="page active" id="dashboard">
+  <div class="hero">
+    <div>
+      <h2>Make your voice heard.</h2>
+      <p>CivicShield is a concept platform that helps citizens understand their rights, report public-service concerns, track complaints and connect with official institutions.</p>
+      <div style="margin-top:17px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-light" onclick="showPage('report')"><i class="fa-solid fa-file-pen"></i> Report an Issue</button>
+        <button class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="showPage('track')"><i class="fa-solid fa-magnifying-glass"></i> Track Complaint</button>
+      </div>
+    </div>
+    <div class="hero-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+  </div>
+
+  <div class="grid stats">
+    <div class="card stat"><div class="stat-top">Total Reports <div class="stat-icon"><i class="fa-solid fa-file-lines"></i></div></div><strong id="statTotal">1,248</strong><small>Demo data</small></div>
+    <div class="card stat"><div class="stat-top">Resolved <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div></div><strong id="statResolved">856</strong><small>68.6% of reports</small></div>
+    <div class="card stat"><div class="stat-top">Under Review <div class="stat-icon"><i class="fa-solid fa-clock"></i></div></div><strong id="statReview">287</strong><small>Currently being reviewed</small></div>
+    <div class="card stat"><div class="stat-top">Pending <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div></div><strong id="statPending">105</strong><small>Awaiting action</small></div>
+  </div>
+
+  <div class="grid quick-grid" style="margin-bottom:20px">
+    <div class="card quick" onclick="showPage('report')"><i class="fa-solid fa-file-pen"></i><h4>Report an Issue</h4><p>Submit a public-service concern and receive a complaint ID.</p></div>
+    <div class="card quick" onclick="showPage('track')"><i class="fa-solid fa-magnifying-glass"></i><h4>Track Complaint</h4><p>View the current status and progress of a complaint.</p></div>
+    <div class="card quick" onclick="showPage('rights')"><i class="fa-solid fa-book-open"></i><h4>Know Your Rights</h4><p>Simple educational information about citizen rights.</p></div>
+    <div class="card quick" onclick="showPage('services')"><i class="fa-solid fa-building-columns"></i><h4>Public Services</h4><p>Find guidance for common government services.</p></div>
+    <div class="card quick" onclick="showPage('help')"><i class="fa-solid fa-location-dot"></i><h4>Find Help</h4><p>Identify the right type of official support for an issue.</p></div>
+    <div class="card quick" onclick="showPage('alerts')"><i class="fa-solid fa-bell"></i><h4>Public Alerts</h4><p>See prototype announcements and service reminders.</p></div>
+    <div class="card quick" onclick="showPage('feedback')"><i class="fa-solid fa-comment-dots"></i><h4>Citizen Feedback</h4><p>Share feedback about public-service experiences.</p></div>
+    <div class="card quick" onclick="showPage('official')"><i class="fa-solid fa-phone"></i><h4>Official Help</h4><p>Connect to appropriate official channels.</p></div>
+  </div>
+
+  <div class="grid two-col">
+    <div class="card panel">
+      <div class="panel-head"><h3>Complaint Trends</h3><span class="muted">Demo data • last 6 months</span></div>
+      <div class="bar-chart">
+        <div class="bar" style="--h:45%"><em>142</em><i style="height:45%"></i><span>Apr</span></div>
+        <div class="bar" style="--h:58%"><em>181</em><i style="height:58%"></i><span>May</span></div>
+        <div class="bar" style="--h:50%"><em>158</em><i style="height:50%"></i><span>Jun</span></div>
+        <div class="bar" style="--h:72%"><em>226</em><i style="height:72%"></i><span>Jul</span></div>
+        <div class="bar" style="--h:64%"><em>201</em><i style="height:64%"></i><span>Aug</span></div>
+        <div class="bar" style="--h:84%"><em>264</em><i style="height:84%"></i><span>Sep</span></div>
+      </div>
+    </div>
+    <div class="card panel">
+      <div class="panel-head"><h3>Issue Categories</h3><span class="muted">Demo distribution</span></div>
+      <div style="display:grid;gap:14px">
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Public services</span><b>34%</b></div><div class="progress"><i style="width:34%"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Corruption / bribery</span><b>27%</b></div><div class="progress"><i style="width:27%"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Documentation</span><b>18%</b></div><div class="progress"><i style="width:18%"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Other civic issues</span><b>21%</b></div><div class="progress"><i style="width:21%"></i></div></div>
+      </div>
+      <div class="notice" style="margin-top:18px"><b>SDG 16 connection:</b> The concept promotes access to information, accountability, transparency and stronger institutions.</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="report">
+  <div class="panel card form-card">
+    <div class="panel-head"><div><h3>Report an Issue</h3><div class="muted" style="margin-top:4px">Submit a concern for demonstration purposes.</div></div><i class="fa-solid fa-file-pen"></i></div>
+    <form id="reportForm">
+      <div class="form-grid">
+        <div class="field"><label>Issue category</label><select id="issueCategory" required><option value="">Select category</option><option>Corruption / Bribery</option><option>Public Service</option><option>Documentation</option><option>Injustice / Rights</option><option>Misuse of Public Resources</option><option>Other Civic Issue</option></select></div>
+        <div class="field"><label>Area / locality</label><input id="issueArea" placeholder="e.g. Guduvanchery" required></div>
+        <div class="field full"><label>Issue title</label><input id="issueTitle" placeholder="Briefly describe the issue" required></div>
+        <div class="field full"><label>Description</label><textarea id="issueDescription" placeholder="Explain what happened. Avoid unnecessary private information." required></textarea></div>
+        <div class="field"><label>Preferred contact</label><select><option>Not provided</option><option>Email</option><option>Phone</option></select></div>
+        <div class="field"><label>Evidence (prototype)</label><input type="file" accept=".jpg,.jpeg,.png,.pdf"></div>
+        <div class="field full"><label class="check"><input type="checkbox" required> I confirm that the information provided is truthful to the best of my knowledge and I understand that this prototype does not replace an official complaint mechanism.</label></div>
+      </div>
+      <div class="form-actions"><button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Report</button><button class="btn btn-outline" type="reset">Clear</button></div>
+    </form>
+  </div>
+  <div class="notice" style="margin-top:15px;max-width:900px"><b>Safety note:</b> Do not upload passwords, financial details, private documents or other unnecessary sensitive information. For immediate emergencies, use the appropriate official emergency service.</div>
+</section>
+
+<section class="page" id="track">
+  <div class="card panel" style="max-width:900px">
+    <div class="panel-head"><div><h3>Track Complaint</h3><div class="muted">Use a prototype complaint ID such as CS2026001.</div></div><i class="fa-solid fa-magnifying-glass"></i></div>
+    <div class="search"><input id="trackInput" placeholder="Enter complaint ID"><button class="btn btn-primary" onclick="trackComplaint()"><i class="fa-solid fa-search"></i> Track</button></div>
+    <div id="trackResult"></div>
+  </div>
+</section>
+
+<section class="page" id="rights">
+  <div class="panel-head"><div><h3 style="font-size:18px;margin:0">Know Your Rights</h3><div class="muted">Educational information — verify details through official sources.</div></div></div>
+  <div class="grid feature-grid">
+    <div class="card feature"><i class="fa-solid fa-scale-balanced"></i><h3>Access to Justice</h3><p>Citizens should be able to seek appropriate legal remedies and information about available support.</p><button class="btn btn-outline btn-sm" onclick="openInfo('Access to Justice','Learn about the appropriate legal and grievance channels for your situation. This prototype provides general information only; use official legal-aid or government sources for case-specific guidance.')">Learn more</button></div>
+    <div class="card feature"><i class="fa-solid fa-circle-info"></i><h3>Right to Information</h3><p>Understand the purpose of transparency and how official information mechanisms can support accountability.</p><button class="btn btn-outline btn-sm" onclick="openInfo('Right to Information','For current procedures, fees and eligibility, consult the relevant official information authority or government portal.')">Learn more</button></div>
+    <div class="card feature"><i class="fa-solid fa-user-check"></i><h3>Fair Public Services</h3><p>Learn how to identify the correct department and grievance route when a public service is not delivered as expected.</p><button class="btn btn-outline btn-sm" onclick="openInfo('Fair Public Services','Keep relevant application or service references, use the designated grievance channel, and retain acknowledgement details where available.')">Learn more</button></div>
+    <div class="card feature"><i class="fa-solid fa-file-shield"></i><h3>Digital Safety</h3><p>Protect passwords, financial information and personal documents when using online services.</p><button class="btn btn-outline btn-sm" onclick="openInfo('Digital Safety','Use official websites, check the domain before entering information, use strong unique passwords and never share one-time passwords.')">Learn more</button></div>
+    <div class="card feature"><i class="fa-solid fa-people-group"></i><h3>Citizen Participation</h3><p>Responsible participation, feedback and awareness can help strengthen relationships between citizens and institutions.</p><button class="btn btn-outline btn-sm" onclick="openInfo('Citizen Participation','Use respectful, factual feedback and participate through legitimate civic and public consultation channels.')">Learn more</button></div>
+    <div class="card feature"><i class="fa-solid fa-hand-holding-heart"></i><h3>Legal Aid Awareness</h3><p>People who need legal assistance can look for appropriate legal-aid services and official support.</p><button class="btn btn-outline btn-sm" onclick="openInfo('Legal Aid Awareness','Availability and eligibility vary. Use official legal-aid services for current information.')">Learn more</button></div>
+  </div>
+</section>
+
+<section class="page" id="services">
+  <div class="card panel">
+    <div class="panel-head"><div><h3>Public Services Directory</h3><div class="muted">Prototype guidance — always verify with the official department.</div></div><i class="fa-solid fa-building-columns"></i></div>
+    <div class="service"><div><h4>Identity & Documents</h4><p>Guidance for common identity/document services and required information.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Identity & Documents','Use the official government department or portal for current application steps and document requirements.')">View</button></div>
+    <div class="service"><div><h4>Education Services</h4><p>Scholarships, certificates, admissions and student-related public services.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Education Services','Check the relevant education department or institution website for current schemes and application procedures.')">View</button></div>
+    <div class="service"><div><h4>Healthcare Services</h4><p>General information about accessing public healthcare services.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Healthcare Services','For medical emergencies or health-specific guidance, use appropriate official healthcare services.')">View</button></div>
+    <div class="service"><div><h4>Local Government Services</h4><p>Municipal/local administration services and grievance pathways.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Local Government Services','Find your relevant local body and use its official service or grievance channel.')">View</button></div>
+    <div class="service"><div><h4>Consumer Services</h4><p>Information on consumer grievance pathways and responsible complaint documentation.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Consumer Services','Use the official consumer grievance system for current procedures and eligibility.')">View</button></div>
+  </div>
+</section>
+
+<section class="page" id="help">
+  <div class="grid feature-grid">
+    <div class="card feature"><i class="fa-solid fa-building-shield"></i><h3>Police / Law Enforcement</h3><p>For safety, crime-related or law-enforcement matters, contact the appropriate official authority.</p><button class="btn btn-outline btn-sm" onclick="showPage('official')">Official channels</button></div>
+    <div class="card feature"><i class="fa-solid fa-gavel"></i><h3>Legal Support</h3><p>Find appropriate legal-aid information and professional guidance.</p><button class="btn btn-outline btn-sm" onclick="showPage('official')">Find support</button></div>
+    <div class="card feature"><i class="fa-solid fa-building"></i><h3>Government Office</h3><p>Identify the department or local body responsible for a public service.</p><button class="btn btn-outline btn-sm" onclick="showPage('services')">Browse services</button></div>
+    <div class="card feature"><i class="fa-solid fa-triangle-exclamation"></i><h3>Emergency</h3><p>For immediate danger or emergencies, contact your local official emergency service instead of waiting for a platform response.</p><button class="btn btn-danger btn-sm" onclick="openInfo('Emergency','This prototype is not an emergency response service. In an immediate emergency, use the appropriate local official emergency number or service.')">Important</button></div>
+    <div class="card feature"><i class="fa-solid fa-people-roof"></i><h3>Community Support</h3><p>Use appropriate local institutions and verified support organisations for non-emergency assistance.</p><button class="btn btn-outline btn-sm" onclick="showPage('official')">View channels</button></div>
+    <div class="card feature"><i class="fa-solid fa-route"></i><h3>Where Should I Report?</h3><p>Choose the right type of official channel instead of sending sensitive information to an unofficial platform.</p><button class="btn btn-primary btn-sm" onclick="openInfo('Where Should I Report?','Select the institution responsible for the service or issue. CivicShield is a prototype directory and does not receive or investigate official complaints.')">Guide me</button></div>
+  </div>
+</section>
+
+<section class="page" id="alerts">
+  <div class="card panel">
+    <div class="panel-head"><div><h3>Public Alerts</h3><div class="muted">Prototype announcements.</div></div><i class="fa-solid fa-bell"></i></div>
+    <div class="alert"><strong>Service information</strong><span>Check official government portals for current service availability and deadlines.</span></div>
+    <div class="alert"><strong>Reporting reminder</strong><span>Keep your complaint acknowledgement/reference number after submitting through an official channel.</span></div>
+    <div class="alert"><strong>Digital safety</strong><span>Never share passwords or one-time passwords with anyone claiming to process a public-service complaint.</span></div>
+  </div>
+</section>
+
+<section class="page" id="awareness">
+  <div class="grid feature-grid">
+    <div class="card feature"><i class="fa-solid fa-eye"></i><h3>Why Transparency Matters</h3><p>Clear processes and accessible information can help citizens understand how institutions deliver services.</p></div>
+    <div class="card feature"><i class="fa-solid fa-shield-halved"></i><h3>Responsible Reporting</h3><p>Report factual information through the correct official channel and avoid submitting unnecessary personal data.</p></div>
+    <div class="card feature"><i class="fa-solid fa-people-arrows"></i><h3>Trust & Institutions</h3><p>Accessible services, clear procedures and accountable systems can support public trust.</p></div>
+    <div class="card feature"><i class="fa-solid fa-chart-simple"></i><h3>Data & Accountability</h3><p>Aggregated, responsibly handled information can help institutions understand recurring service issues.</p></div>
+    <div class="card feature"><i class="fa-solid fa-handshake"></i><h3>Citizen + Institution</h3><p>Strong institutions depend on clear communication between public authorities and the people they serve.</p></div>
+    <div class="card feature"><i class="fa-solid fa-earth-asia"></i><h3>SDG 16</h3><p>SDG 16 focuses on peaceful and inclusive societies, access to justice and effective, accountable institutions.</p></div>
+  </div>
+</section>
+
+<section class="page" id="feedback">
+  <div class="card panel" style="max-width:760px">
+    <div class="panel-head"><div><h3>Citizen Feedback</h3><div class="muted">Demo feedback form.</div></div><i class="fa-solid fa-comment-dots"></i></div>
+    <form id="feedbackForm">
+      <div class="form-grid">
+        <div class="field"><label>Service area</label><select required><option value="">Select</option><option>Public Service</option><option>Education</option><option>Healthcare</option><option>Documentation</option><option>Other</option></select></div>
+        <div class="field"><label>Rating</label><select required><option value="">Select rating</option><option>5 — Very satisfied</option><option>4 — Satisfied</option><option>3 — Neutral</option><option>2 — Dissatisfied</option><option>1 — Very dissatisfied</option></select></div>
+        <div class="field full"><label>Comments</label><textarea placeholder="Share a respectful, factual comment"></textarea></div>
+      </div>
+      <div class="form-actions"><button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Feedback</button></div>
+    </form>
+  </div>
+</section>
+
+<section class="page" id="privacy">
+  <div class="grid feature-grid">
+    <div class="card feature"><i class="fa-solid fa-lock"></i><h3>Protect Personal Data</h3><p>Only provide information necessary for the relevant official process. Avoid sharing passwords, OTPs or financial credentials.</p></div>
+    <div class="card feature"><i class="fa-solid fa-link"></i><h3>Check Official Websites</h3><p>Before entering personal information, verify that you are using the correct official website or app.</p></div>
+    <div class="card feature"><i class="fa-solid fa-file-circle-xmark"></i><h3>Don't Overshare Evidence</h3><p>Upload only relevant evidence through an appropriate official channel. Remove unnecessary private information where possible.</p></div>
+    <div class="card feature"><i class="fa-solid fa-circle-exclamation"></i><h3>False Information</h3><p>Do not knowingly submit false or misleading allegations. Use factual descriptions and distinguish observations from assumptions.</p></div>
+    <div class="card feature"><i class="fa-solid fa-user-secret"></i><h3>Prototype Limitation</h3><p>This demo does not provide real anonymous reporting, encryption, government integration or legal protection.</p></div>
+    <div class="card feature"><i class="fa-solid fa-check"></i><h3>Safer Reporting</h3><p>Use the relevant official complaint mechanism for real cases and retain any acknowledgement/reference number.</p></div>
+  </div>
+</section>
+
+<section class="page" id="impact">
+  <div class="grid kpi-row" style="margin-bottom:18px">
+    <div class="card kpi"><b>1,248</b><span>Reports received — demo</span></div>
+    <div class="card kpi"><b>856</b><span>Resolved — demo</span></div>
+    <div class="card kpi"><b>3,500+</b><span>Awareness views — demo</span></div>
+  </div>
+  <div class="grid two-col">
+    <div class="card panel"><div class="panel-head"><h3>Project Impact Areas</h3><span class="muted">Conceptual</span></div>
+      <div style="display:grid;gap:17px">
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Transparency</span><b>High potential</b></div><div class="progress"><i style="width:85%"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Citizen awareness</span><b>High potential</b></div><div class="progress"><i style="width:78%"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Accountability</span><b>Potential</b></div><div class="progress"><i style="width:70%"></i></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:6px"><span>Access to information</span><b>High potential</b></div><div class="progress"><i style="width:88%"></i></div></div>
+      </div>
+    </div>
+    <div class="card panel"><div class="panel-head"><h3>SDG 16 Connection</h3><i class="fa-solid fa-earth-asia"></i></div>
+      <p class="muted" style="line-height:1.7">CivicShield is designed as a concept to support awareness, responsible reporting, access to information and connections to legitimate public institutions.</p>
+      <div class="notice"><b>Project message:</b> “A strong institution begins with a citizen who can speak, report and be heard.”</div>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="official">
+  <div class="card panel">
+    <div class="panel-head"><div><h3>Official Help & Channels</h3><div class="muted">Replace these demo cards with verified official links before public deployment.</div></div><i class="fa-solid fa-phone"></i></div>
+    <div class="service"><div><h4>Emergency Services</h4><p>Use your local official emergency service for immediate danger.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Emergency Services','For a real project deployment, add the verified emergency number and official source for the target location.')">Details</button></div>
+    <div class="service"><div><h4>Government Grievance System</h4><p>Connect users to the appropriate government grievance mechanism.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Government Grievance System','For deployment, add the verified official grievance portal URL for the target jurisdiction.')">Details</button></div>
+    <div class="service"><div><h4>Anti-Corruption Authority</h4><p>For corruption-related reports, direct users to the competent official authority.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Anti-Corruption Authority','For deployment, add the verified anti-corruption authority and official complaint channel for the target jurisdiction.')">Details</button></div>
+    <div class="service"><div><h4>Legal Aid</h4><p>Connect users to verified legal-aid resources where applicable.</p></div><button class="btn btn-outline btn-sm" onclick="openInfo('Legal Aid','For deployment, add the verified legal-aid authority and current contact details.')">Details</button></div>
+  </div>
+</section>
+
+<section class="page" id="admin">
+  <div class="hero" style="padding:22px 25px"><div><h2 style="font-size:22px">Admin Dashboard</h2><p>Prototype complaint management and analytics.</p></div><i class="fa-solid fa-user-gear hero-icon"></i></div>
+  <div class="grid stats">
+    <div class="card stat"><div class="stat-top">Total <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div></div><strong id="adminTotal">3</strong><small>Prototype records</small></div>
+    <div class="card stat"><div class="stat-top">Resolved <div class="stat-icon"><i class="fa-solid fa-check"></i></div></div><strong id="adminResolved">1</strong><small>Prototype records</small></div>
+    <div class="card stat"><div class="stat-top">Review <div class="stat-icon"><i class="fa-solid fa-clock"></i></div></div><strong id="adminReview">1</strong><small>Prototype records</small></div>
+    <div class="card stat"><div class="stat-top">Pending <div class="stat-icon"><i class="fa-solid fa-hourglass"></i></div></div><strong id="adminPending">1</strong><small>Prototype records</small></div>
+  </div>
+  <div class="card panel">
+    <div class="panel-head"><div><h3>Complaint Management</h3><div class="muted">Change status to demonstrate the workflow.</div></div><button class="btn btn-outline btn-sm" onclick="resetDemo()"><i class="fa-solid fa-rotate"></i> Reset Demo</button></div>
+    <div class="table-wrap"><table class="table"><thead><tr><th>ID</th><th>Category</th><th>Area</th><th>Title</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminTable"></tbody></table></div>
+  </div>
+</section>
+
+<div class="footer">CivicShield • SDG 16 Prototype • Peace, Justice and Strong Institutions • Demo only</div>
+</div>
+</main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-head"><h3 id="modalTitle">Information</h3><button class="icon-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button></div>
+    <div id="modalBody" class="muted" style="line-height:1.7"></div>
+  </div>
+</div>
+<script src="Civics_Sheild.js"></script>
+</body>
+</html>
